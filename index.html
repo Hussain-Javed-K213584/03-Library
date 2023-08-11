@@ -6,21 +6,29 @@
     <title>Library</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rouge+Script">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
-
+        <header>
+            <div class="title-bar">
+                <h1 class="title-heading">Library of Maango</h1>
+            </div>
+        </header>
+        <hr>
         <div class="grid-container">
             <div class="book-card">
-                <h3 class="book-title">Title of Book</h3>
+                <h1 class="book-title">Title of Book</h1>
                 <hr>
-                <p>Author</p>
-                <p>Title</p>
-                <p>Number of pages</p>
-                <p>Is book read</p>
+                <p data-book-author class="book-details">Author:</p>
+                <p data-book-title class="book-details">Title:</p>
+                <p data-book-pages class="book-details">Number of pages:</p>
+                <p data-book-read-status class="book-details">Is book read:</p>
             </div>
         </div>
+        <footer>
+            Created by Hussain
+        </footer>
     </div>
 </body>
 </html>
