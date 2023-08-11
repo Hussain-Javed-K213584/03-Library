@@ -1,0 +1,30 @@
+:root{
+    --theme-bg-color: #18181b;
+    --theme-card-color: #27272a;
+    --theme-font-color: #a1a1aa;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: var(--theme-bg-color);
+    color: var(--theme-font-color);
+}
+
+.container{
+    padding: 1rem;
+}
+
+.grid-container{
+    display: grid;
+}
+
+.book-card{
+    padding: 1rem;
+    background-color: var(--theme-card-color);
+    width: 20%;
+}
