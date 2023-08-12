@@ -45,6 +45,23 @@ input[type="text"] {
     justify-content: center;
 }
 
+.book-btn{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.read-status-btn,
+.remove-book-btn {
+    outline: none;
+    border: none;
+    background-color: var(--theme-bg-color);
+    padding: 1rem;
+    border-radius: 100vw;
+    color: var(--theme-font-color);
+    font-weight: bold;
+}
+
 .new-book-dialog{
     position: fixed;
     top: 50%;
@@ -99,6 +116,7 @@ footer{
 .book-card {
     padding: 1rem;
     background-color: var(--theme-card-color);
+    height: 100%;
 }
 
 .book-title,
