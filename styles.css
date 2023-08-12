@@ -2,6 +2,7 @@
     --theme-bg-color: #18181b;
     --theme-card-color: #27272a;
     --theme-font-color: #a1a1aa;
+    --theme-dialog-backdrop: #d4d4d8;
 }
 
 * {
@@ -15,11 +16,59 @@ body {
     color: var(--theme-font-color);
 }
 
-.flex-container {
+input[type="text"], 
+label.text-label {
+    display: block;
+}
+
+input[type="text"] {
+    width: 10rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    outline: none;
+}
+
+.dialog-form{
     display: flex;
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* align-items: center; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.new-book-btn {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.new-book-dialog{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+}
+
+dialog::backdrop {
+    background-color: hsla(194, 0%, 31%, 0.3);
+}
+
+.display-dialog-btn{
+    border: none;
+    outline: none;
+    background-color: var(--theme-card-color);
+    color: var(--theme-font-color);
+    padding: 1rem;
+    border-radius: 100vw;
+    font-weight: 600;
+}
+
+.display-dialog-btn:hover{
+    cursor: pointer;
 }
 
 .book-details {
