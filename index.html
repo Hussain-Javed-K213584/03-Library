@@ -12,7 +12,7 @@
     <div class="container">
         <header>
             <div class="title-bar">
-                <h1 class="title-heading">Library of Maango</h1>
+                <h1 class="title-heading">Library of PeachyMaango</h1>
             </div>
         </header>
         <hr>
@@ -37,9 +37,9 @@
     
                     <div>
                         <p>Is the book read?</p>
-                        <input type="radio" id="book-read-status" name="read_status" required>
+                        <input type="radio" id="book-read-status" value="Yes" name="read_status" required>
                         <label for="book-read-status" name="read_status">Yes</label>
-                        <input type="radio" id="book-read-status" name="read_status" required>
+                        <input type="radio" id="book-read-status" value="No" name="read_status" required>
                         <label for="book-read-status" name="read-status">No</label>
                     </div>
 
@@ -50,8 +50,8 @@
                 </form>
             </dialog>
         </div>
-        <div class="grid-container">
-            <div data-book-index="0" class="book-card">
+        <div id="gridContainer" class="grid-container">
+            <!-- <div data-book-index="0" class="book-card">
                 <h1 class="book-title">The Lord of the Rings</h1>
                 <hr>
                 <p class="book-details">Author: J.R.R Tolkein</p>
@@ -61,7 +61,7 @@
                     <button class="read-status-btn">Change Read Status</button>
                     <button class="remove-book-btn">Remove Book</button>
                 </div>
-            </div>
+            </div> -->
         </div>
         <footer>
             Created by Hussain
