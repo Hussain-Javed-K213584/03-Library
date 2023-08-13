@@ -1,4 +1,16 @@
 let myLibrary = [];
+let bookCount = 0;
+let changeReadStatusButton = document.createElement("button");
+let removeBookButton = document.createElement("button");
+let bookCard = document.createElement("div");
+let buttonDiv = document.createElement("div");
+let titleHeading = document.createElement("h1");
+let bookDetails = [];
+for (let i = 0; i < 3; i++)
+{
+    bookDetails.push(document.createElement("p"));
+    bookDetails[i].className = "book-details";
+}
 const dialogButton = document.querySelector("#showDialog");
 const myDialog = document.querySelector("#newBookDialog");
 const closeDialogButton = document.querySelector("#formCancel");
@@ -13,6 +25,7 @@ formObj.addEventListener("submit", (e) => {
     let readStatus = document.querySelector(`input[name="read_status"]:checked`).value;
     const book = new Book(title, author, pages, readStatus);
     addBookToLibrary(book);
+    myDialog.close();
 })
 
 closeDialogButton.addEventListener("click", () => {
@@ -33,19 +46,11 @@ function Book(title, author, page, readStatus) {
 
 function addBookToLibrary(bookToAdd){
     // do stuff here
-    let bookCard = document.createElement("div");
-    let buttonDiv = document.createElement("div");
-    let titleHeading = document.createElement("h1");
-    let changeReadStatusButton = document.createElement("button");
-    let removeBookButton = document.createElement("button");
-    let bookDetails = [];
-    for (let i = 0; i < 3; i++)
-    {
-        bookDetails.push(document.createElement("p"));
-        bookDetails[i].className = "book-details";
-    }
     // Set data attribute of all elements variable
-    bookCard.dataset.bookIndex = "0";
+    bookCard.dataset.bookIndex = bookCount;
+    changeReadStatusButton.dataset.bookIndex = bookCount;
+    removeBookButton.dataset.bookIndex = bookCount;
+    bookCount++;
     bookCard.className = "book-card";
     titleHeading.className = "book-title";
     buttonDiv.className = "book-btn";
@@ -57,6 +62,7 @@ function addBookToLibrary(bookToAdd){
     bookDetails[0].innerText = "Author: " + bookToAdd.author;
     bookDetails[1].innerText = "Pages: " + bookToAdd.page;
     bookDetails[2].innerText = "Read Status: " + bookToAdd.readStatus;
+    bookDetails[2].setAttribute("id", "bookReadStatus"); // To access when changing read status
     gridContainer.appendChild(bookCard);
     bookCard.appendChild(titleHeading);
     bookCard.appendChild(document.createElement("hr"));
@@ -68,3 +74,24 @@ function addBookToLibrary(bookToAdd){
     buttonDiv.appendChild(removeBookButton);
 
 }
+
+removeBookButton.addEventListener("click", () => {
+    let datasetValue = removeBookButton.dataset.bookIndex;
+    let bookCardtoRemove = document.
+    querySelector(`[data-book-index="${datasetValue}"]`);
+    bookCardtoRemove.remove();
+})
+
+changeReadStatusButton.addEventListener("click", () => {
+    let datasetValue = changeReadStatusButton.dataset.bookIndex;
+    let bookCardDiv = document.
+    querySelector(`[data-book-index="${datasetValue}"]`);
+    let readStatusElement = bookCardDiv.querySelector("#bookReadStatus");
+    if (readStatusElement.innerText.toLowerCase() == "read status: yes"){
+        readStatusElement.innerText = "Read Status: No";
+    }
+    else if (readStatusElement.innerText.toLowerCase() == "read status: no") {
+        readStatusElement.innerText = "Read Status: Yes";
+    }
+
+})
